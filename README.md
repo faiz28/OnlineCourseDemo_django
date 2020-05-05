@@ -1,16 +1,16 @@
 # OnlineCourseDemo_django
-<br>
-Course:<br>
-   | <br>
-   |---course Number <br>
-   |---Course Title <br>
-   |---Course Price <br>
-   |---Course Demo image <br>
+<pre>
+Course:
+   | 
+   |---course Number
+   |---Course Title
+   |---Course Price
+   |---Course Demo image
 
-Lesson: </br>
-   | <br/>
-   |---Lesson Number <br/>
-   |---Lesson Title <br/>
-   |---lesson link <br/>
-   |
-   |---Course Number Connected with lesson <br/>
+Lesson:
+   | 
+   |---Lesson Number
+   |---Lesson Title
+   |---lesson link 
+   |---Course Number Connected with lesson 
+</pre>
