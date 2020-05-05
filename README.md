@@ -1,11 +1,11 @@
 # OnlineCourseDemo_django
-
-Course
-   .
-   .---course Number
-   .---Course Title
-   .---Course Price
-   .---Course Demo image
+<br>
+Course <br>
+   . <br>
+   .---course Number <br>
+   .---Course Title <br>
+   .---Course Price <br>
+   .---Course Demo image <br>
 
 Lesson
    .
