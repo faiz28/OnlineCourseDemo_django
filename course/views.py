@@ -4,3 +4,7 @@ from .models import Allcourse
 def course(request):
     courses=Allcourse.objects.all()
     return render(request,'course/allcourse.html',{'courses':courses})
+
+def detail(request,course_id):
+    detailblog=get_object_or_404(Allcourse,pk=course_id)
+    return render(request,'course/detail.html',{'courses':detailblog})
