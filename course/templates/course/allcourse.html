@@ -90,9 +90,9 @@
 
                                 <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li><a href="#">Home</a>
+                                        <li><a href="{% url 'home' %}">Home</a>
                                         </li>
-                                        <li><a href="#">Courses</a>
+                                        <li><a href="{% url 'course' %}">Courses</a>
                                         </li>
                                         <li><a href="#">Blog</a>
                                         </li>
@@ -202,7 +202,7 @@
                             <div class="cource-block-two col-lg-4 col-md-6 col-sm-12">
                                 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                     <div class="image">
-                                        <a href="course-detail.html"><img src="{{ courses.image.url}}" alt="" /></a>
+                                        <a href="{% url 'detail' courses.id %}"><img src="{{ courses.image.url}}" alt="" /></a>
                                     </div>
                                     <div class="lower-content">
                                         <h5><a href="course-detail.html">Typography</a></h5>
@@ -269,20 +269,6 @@
     </section>
     <!-- End Popular Courses -->
 
-    <!-- Call To Action Section Two -->
-    <section class="call-to-action-section-two" style="background-image: url(images/background/3.png)">
-        <div class="auto-container">
-            <div class="content">
-                <h2>Ready to get started?</h2>
-                <div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
-                <div class="buttons-box">
-                    <a href="course.html" class="theme-btn btn-style-one"><span class="txt">Get Stared <i class="fa fa-angle-right"></i></span></a>
-                    <a href="course.html" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Call To Action Section Two -->
 
     <section class="call-to-action-section-two" style="background-image: url({% static 'images/background/3.png' %})">
         <div class="auto-container">

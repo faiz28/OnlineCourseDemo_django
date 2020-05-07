@@ -90,9 +90,9 @@
 
                                 <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li><a href="#">Home</a>
+                                        <li><a href="{% url 'home' %}">Home</a>
                                         </li>
-                                        <li><a href="#">Courses</a>
+                                        <li><a href="{% url 'course' %}">Courses</a>
                                         </li>
                                         <li><a href="#">Blog</a>
                                         </li>
@@ -131,7 +131,7 @@
         <!-- Page Title -->
         <section class="page-title">
             <div class="auto-container">
-                <h1>Courses</h1>
+                <h1>{{courses.title}}</h1>
 
                 <!-- Search Boxed -->
                 <div class="search-boxed">
@@ -405,7 +405,7 @@
                                 <div class="price">${{courses.price}}</div>
                                 <div class="time-left">23 hours left at this price!</div>
 
-                                <a href="#" class="theme-btn btn-style-three"><span class="txt">Add To Cart <i class="fa fa-angle-right"></i></span></a>
+                                <a href="{% url 'lesson' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Add To Cart <i class="fa fa-angle-right"></i></span></a>
                                 <a href="#" class="theme-btn btn-style-two"><span class="txt">Buy Now <i class="fa fa-angle-right"></i></span></a>
                             </div>
                         </div>
@@ -415,20 +415,6 @@
 
             </div>
         </section>
-        <!-- Call To Action Section Two -->
-        <section class="call-to-action-section-two" style="background-image: url({% static 'images/background/3.png' %})">
-            <div class="auto-container">
-                <div class="content">
-                    <h2>Ready to get started?</h2>
-                    <div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
-                    <div class="buttons-box">
-                        <a href="course.html" class="theme-btn btn-style-one"><span class="txt">Get Stared <i class="fa fa-angle-right"></i></span></a>
-                        <a href="course.html" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
     <!--End pagewrapper-->
 
