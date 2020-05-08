@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import bkash
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -36,10 +38,13 @@ def logout(request):
         auth.logout(request)
         return redirect('home')
 
-def bkash_from(request):
+@login_required(login_url="/accounts/signup")
+def bkash_from(request,course_id):
+    username = request.user.username
+    email = request.user.email
     if request.method == 'POST':
-        p = bkash.objects.create(username=request.POST['username'],email=request.POST['email'],mobile_number=request.POST['number'],transaction_id=request.POST['id'])
+        p = bkash.objects.create(username=username,email=request.POST['email'],mobile_number=request.POST['number'],transaction_id=request.POST['id'],course_id=course_id)
         p.save()
         return redirect('course')
     else:
-        return render(request,'accounts/bKash_payment.html')
+        return render(request,'accounts/bKash_payment.html',{'username':username,'email':email})

@@ -145,15 +145,10 @@
                         <form method="POST" action="">
                             {% csrf_token %}
                             <div class="row clearfix">
-                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                    <label>Username</label>
-                                    <input type="text" name="username" value="Hi" placeholder="" required>
-                                </div>
-
                                 <!-- Form Group -->
                                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
                                     <label>Email Address</label>
-                                    <input type="email" name="email" value="" placeholder="" required>
+                                    <input type="email" name="email" value="{{email}}" placeholder="" required>
                                 </div>
                                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
                                     <label>Mobile Number</label>

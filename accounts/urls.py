@@ -5,5 +5,5 @@ urlpatterns = [
     path('signup',views.register,name='signup'),
     path('signin',views.login,name='signin'),
     path('logout',views.logout,name='logout'),
-    path('bkash',views.bkash_from,name='bkash'),
+    path('<int:course_id>/bkash',views.bkash_from,name='bkash'),
 ]

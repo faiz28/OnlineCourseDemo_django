@@ -7,7 +7,7 @@ class All_course(models.Model):
     title = models.CharField(max_length=250)
     price = models.IntegerField(default=1000)
     image = models.ImageField(upload_to='images/')
-    permision = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.title
@@ -21,4 +21,5 @@ class All_lesson(models.Model):
 
     def __str__(self):
         return self.title
+
 

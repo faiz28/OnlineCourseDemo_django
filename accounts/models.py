@@ -8,4 +8,6 @@ class bkash(models.Model):
     email = models.CharField(max_length=250)
     mobile_number = models.CharField(max_length=15,default="")
     transaction_id = models.CharField(max_length=40)
+    course_id = models.IntegerField(default=1)
+    permision = models.IntegerField(default=5)
    

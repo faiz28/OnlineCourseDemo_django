@@ -18,7 +18,10 @@
         </div>
 
     </div>
+
 </section>
+
+
 <!--End Page Title-->
 <section class="intro-section">
     <div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
@@ -26,11 +29,33 @@
     <div class="circle-one"></div>
     <div class="auto-container">
         <div class="sec-title">
-            <h2>Learn User Interface and <br> User Experience</h2>
+            <h2>{{username}}{{permit}} <br> User Experience</h2>
         </div>
 
         <div class="inner-container">
             <div class="row clearfix">
+                <!-- Video Column -->
+                <div class="video-column col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column sticky-top">
+
+                        <!-- Video Box -->
+                        <div class="intro-video" style="background-image: url({{courses.image.url}})">
+                            <a href="" class="lightbox-image intro-video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
+                            <h4>Preview this course</h4>
+                        </div>
+                        <!-- End Video Box -->
+                        <div class="price">${{courses.price}}</div>
+                        <div class="time-left">23 hours left at this price!</div>
+
+                        {% if permit == 1%}
+                        <a href="{% url 'lesson' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Play Video</span></a> {%elif permit == 5%}
+
+                        <a href="{% url 'course' %}" class="theme-btn btn-style-three"><span class="txt">Pending</i></span></a> {%else%}
+                        <a href="{% url 'bkash' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Buy Now</i></span></a> {%endif%}
+
+
+                    </div>
+                </div>
 
                 <!-- Content Column -->
                 <div class="content-column col-lg-8 col-md-12 col-sm-12">
@@ -260,23 +285,7 @@
                     </div>
                 </div>
 
-                <!-- Video Column -->
-                <div class="video-column col-lg-4 col-md-12 col-sm-12">
-                    <div class="inner-column sticky-top">
 
-                        <!-- Video Box -->
-                        <div class="intro-video" style="background-image: url({{courses.image.url}})">
-                            <a href="" class="lightbox-image intro-video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
-                            <h4>Preview this course</h4>
-                        </div>
-                        <!-- End Video Box -->
-                        <div class="price">${{courses.price}}</div>
-                        <div class="time-left">23 hours left at this price!</div>
-
-                        <a href="{% url 'lesson' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Add To Cart <i class="fa fa-angle-right"></i></span></a>
-                        <a href="#" class="theme-btn btn-style-two"><span class="txt">Buy Now <i class="fa fa-angle-right"></i></span></a>
-                    </div>
-                </div>
 
             </div>
         </div>
