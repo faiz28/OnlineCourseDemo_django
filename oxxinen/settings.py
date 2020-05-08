@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     'accounts.apps.AccountsConfig',
     'main_page.apps.MainPageConfig',
     'course.apps.CourseConfig',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bkash',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'oxxinen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['oxxinen/templates'],
+        'DIRS': ['oxxinen/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,6 +120,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#bkash api user
+#BKASH_APP_KEY = # bkash app key
+# BKASH_APP_SECRET = // bkash app secret
+# BKASH_APP_USERNAME = // bkash app username
+# BKASH_APP_PASSWORD = // bkash app password
+# BKASH_APP_VERSION = // bkash app version
+# BKASH_APP_BASE_URL = // bkash app base url
+# BKASH_APP_PAYMENT_TOKEN_GRANT_URL = '%s/%s/checkout/token/grant' % (BKASH_APP_BASE_URL, BKASH_APP_VERSION)
+# BKASH_APP_PAYMENT_CREATE_URL = '%s/%s/checkout/payment/create' % (BKASH_APP_BASE_URL, BKASH_APP_VERSION)
+# BKASH_APP_PAYMENT_EXECUTE_URL = '%s/%s/checkout/payment/execute' % (BKASH_APP_BASE_URL, BKASH_APP_VERSION)
 
 
 # Static files (CSS, JavaScript, Images)
