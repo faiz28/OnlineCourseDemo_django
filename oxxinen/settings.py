@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'main_page.apps.MainPageConfig',
     'course.apps.CourseConfig',
     'django.contrib.admin',
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'oxxinen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['oxxinen/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

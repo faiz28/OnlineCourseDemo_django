@@ -54,10 +54,18 @@
                         <!-- Top Right -->
                         <div class="top-right pull-right clearfix">
                             <!-- Login Nav -->
+                            {% if user.is_authenticated %}
+                            <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                            <form action="{%url 'logout'%}" method="POST" id='logout'>
+                                {% csrf_token%}
+                                <input type="hidden">
+                            </form>
+                            {%else%}
                             <ul class="login-nav">
-                                <li><a href="login.html">Log In</a></li>
-                                <li><a href="register.html">Register</a></li>
+                                <li><a href="{%url 'signin'%}">Sign In</a></li>
+                                <li><a href="{%url 'signup'%}">Sign Up</a></li>
                             </ul>
+                            {%endif%}
                         </div>
 
                     </div>
