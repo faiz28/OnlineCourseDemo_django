@@ -196,7 +196,7 @@
                                     <div class="tab" id="prod-reviews">
 
                                         <div class="styled-form" style="padding: 30px;">
-                                            <form method="ratting" action="">
+                                            <form method="POST" action="{%url 'review' courses.id%}">
                                                 {% csrf_token %}
                                                 <div class="row clearfix">
 

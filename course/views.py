@@ -25,7 +25,7 @@ def lesson(request,course_id):
     if permit==1:
         lesson = All_lesson.objects.all()
         detailcourse=get_object_or_404(All_course,pk=course_id)
-        return render(request,'course/lesson.html',{'lesson':lesson,'course':detailcourse})
+        return render(request,'course/lesson.html',{'lesson':lesson,'courses':detailcourse})
     else:
         return render(request,'course/detail.html',{'courses':detailcourse,'permit':permit})
 
@@ -36,8 +36,6 @@ def detail(request,course_id):
     detailcourse=get_object_or_404(All_course,pk=course_id)
     lesson=All_lesson.objects.all()
     username = request.user.username
-
-    #Query from database
     play=bkash.objects.filter(Q(username=username) & Q(permision=1) & Q(course_id=course_id))
     pending= bkash.objects.filter(Q(username=username) & Q(permision=5) & Q(course_id=course_id))
     len_play= len(play)
@@ -51,15 +49,15 @@ def detail(request,course_id):
             permit = 0
     return render(request,'course/detail.html',{'courses':detailcourse,'permit':permit,'lessons':lesson})
 
-
+@login_required(login_url="/accounts/signup")
 def review_action(request,course_id):
-    username = request.user.username
-    if request.method == 'ratting':
-        p = Review.objects.create(username=username,course_id=course_id,summary=request.ratting['summary'],rating=request.ratting['rating'])
-        p.save()
-        return render(request,'home')
-    else:
-        return redirect('home')
+        username = request.user.username
+        if request.method == 'POST':
+            p = Review.objects.create(username=username,course_id=course_id,summary=request.POST['summary'],rating=request.POST['rating'])
+            p.save()
+            return render(request,'course/detail.html')
+        else:
+            return redirect('home')
 
 
     
