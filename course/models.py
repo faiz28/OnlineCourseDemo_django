@@ -23,3 +23,9 @@ class All_lesson(models.Model):
         return self.title
 
 
+class Review(models.Model):
+    username = models.CharField(max_length=50)
+    course_id = models.IntegerField()
+    summary = models.CharField(max_length=250)
+    rating = models.IntegerField()
+

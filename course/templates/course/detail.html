@@ -22,6 +22,7 @@
 </section>
 
 
+
 <!--End Page Title-->
 <section class="intro-section">
     <div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
@@ -168,36 +169,18 @@
                                                     <div class="acc-btn">
                                                         <div class="icon-outer"><span class="icon icon-plus flaticon-angle-arrow-down"></span></div>Lesson</div>
                                                     <div class="acc-content">
+                                                        {%for lesson in lessons.all%} {% if lesson.course_Num == courses.id%}
                                                         <div class="content">
                                                             <div class="clearfix">
                                                                 <div class="pull-left">
-                                                                    <a href="../../../../external.html?link=https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
+                                                                    <a href="../../../../external.html?link={{lesson.link}}" class="lightbox-image play-icon"><span class="fa fa-play"></span>{{lesson.title}}</a>
                                                                 </div>
                                                                 <div class="pull-right">
                                                                     <div class="minutes">35 Minutes</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="content">
-                                                            <div class="clearfix">
-                                                                <div class="pull-left">
-                                                                    <a href="../../../../external.html?link=https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"><i class="ripple"></i></span>What is UI/ UX Design?</a>
-                                                                </div>
-                                                                <div class="pull-right">
-                                                                    <div class="minutes">35 Minutes</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <div class="clearfix">
-                                                                <div class="pull-left">
-                                                                    <a href="../../../../external.html?link=https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-icon"><span class="fa fa-play"></span>What is UI/ UX Design?</a>
-                                                                </div>
-                                                                <div class="pull-right">
-                                                                    <div class="minutes">35 Minutes</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        {%endif%}{%endfor%}
                                                     </div>
                                                 </li>
 
@@ -211,6 +194,19 @@
 
                                     <!-- Tab -->
                                     <div class="tab" id="prod-reviews">
+                                        <div class="rating-box">
+                                            <div class="ratingss">
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                            </div>
+                                            <input type="text" id="rating-value" style="background-color: gray; " value="">
+
+                                        </div>
+                                        <br>
+                                        <br>
                                         <div class="content">
 
                                             <div class="cource-review-box">
@@ -219,7 +215,8 @@
                                                     <span class="total-rating">4.5</span> <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>&ensp;
                                                     256 Reviews
                                                 </div>
-                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.</div>
+                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.
+                                                </div>
                                                 <div class="helpful">Was this review helpful?</div>
                                                 <ul class="like-option">
                                                     <li><span class="icon fa fa-thumbs-o-up"></span></li>
@@ -234,7 +231,8 @@
                                                     <span class="total-rating">4.5</span> <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>&ensp;
                                                     256 Reviews
                                                 </div>
-                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.</div>
+                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.
+                                                </div>
                                                 <div class="helpful">Was this review helpful?</div>
                                                 <ul class="like-option">
                                                     <li><span class="icon fa fa-thumbs-o-up"></span></li>
@@ -249,7 +247,8 @@
                                                     <span class="total-rating">4.5</span> <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>&ensp;
                                                     256 Reviews
                                                 </div>
-                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.</div>
+                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.
+                                                </div>
                                                 <div class="helpful">Was this review helpful?</div>
                                                 <ul class="like-option">
                                                     <li><span class="icon fa fa-thumbs-o-up"></span></li>
@@ -264,7 +263,8 @@
                                                     <span class="total-rating">4.5</span> <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>&ensp;
                                                     256 Reviews
                                                 </div>
-                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.</div>
+                                                <div class="text">Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo. In libero urna, venenatis sit amet ornare non, suscipit nec risus.
+                                                </div>
                                                 <div class="helpful">Was this review helpful?</div>
                                                 <ul class="like-option">
                                                     <li><span class="icon fa fa-thumbs-o-up"></span></li>
