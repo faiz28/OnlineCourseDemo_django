@@ -194,19 +194,39 @@
 
                                     <!-- Tab -->
                                     <div class="tab" id="prod-reviews">
-                                        <div class="rating-box">
-                                            <div class="ratingss">
-                                                <span class="fa fa-star-o"></span>
-                                                <span class="fa fa-star-o"></span>
-                                                <span class="fa fa-star-o"></span>
-                                                <span class="fa fa-star-o"></span>
-                                                <span class="fa fa-star-o"></span>
-                                            </div>
-                                            <input type="text" id="rating-value" style="background-color: gray; " value="">
 
+                                        <div class="styled-form" style="padding: 30px;">
+                                            <form method="ratting" action="">
+                                                {% csrf_token %}
+                                                <div class="row clearfix">
+
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                                        <label>summary</label>
+                                                        <input type="text" name="summary" value="" placeholder="summary" required>
+                                                    </div>
+                                                    <div class="rating-box">
+                                                        <div class="ratingss">
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                        </div>
+                                                        <input type="hidden" name="rating" id="rating-value" style="background-color: gray; " value="">
+
+                                                    </div>
+
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-6 col-md-12 col-sm-12 ">
+                                                    </div>
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 ">
+                                                        <button type="submit" class="theme-btn btn-style-three"><span class="txt">submit</span></button>
+                                                    </div>
+
+                                                </div>
+                                            </form>
                                         </div>
-                                        <br>
-                                        <br>
                                         <div class="content">
 
                                             <div class="cource-review-box">
@@ -292,5 +312,6 @@
 
     </div>
 </section>
+
 
 {%endblock%}

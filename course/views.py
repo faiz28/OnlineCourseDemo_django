@@ -1,5 +1,5 @@
-from django.shortcuts import render,get_object_or_404
-from .models import All_course,All_lesson
+from django.shortcuts import render,get_object_or_404,redirect
+from .models import All_course,All_lesson,Review
 from django.contrib.auth.decorators import login_required
 from accounts.models import bkash
 from django.db.models import Q
@@ -51,4 +51,15 @@ def detail(request,course_id):
             permit = 0
     return render(request,'course/detail.html',{'courses':detailcourse,'permit':permit,'lessons':lesson})
 
-        
+
+def review_action(request,course_id):
+    username = request.user.username
+    if request.method == 'ratting':
+        p = Review.objects.create(username=username,course_id=course_id,summary=request.ratting['summary'],rating=request.ratting['rating'])
+        p.save()
+        return render(request,'home')
+    else:
+        return redirect('home')
+
+
+    

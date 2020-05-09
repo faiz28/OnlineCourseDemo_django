@@ -29,3 +29,6 @@ class Review(models.Model):
     summary = models.CharField(max_length=250)
     rating = models.IntegerField()
 
+    def __str__(self):
+        return self.username
+
