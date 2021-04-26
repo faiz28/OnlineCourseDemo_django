@@ -1,6 +1,6 @@
 # OnlineCourseDemo_django
 ***Database Design*** <br>
-Link:http://oxxinen.com/
+Link: http://zerolearning.net/
 
 <pre>
 Course:
