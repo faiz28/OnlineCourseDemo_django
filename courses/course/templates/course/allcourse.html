@@ -1,0 +1,209 @@
+{%extends 'base.html' %} {%block content%} {%load static%}
+
+
+<!-- Page Title -->
+<section class="page-title">
+    <div class="auto-container">
+        <h1>Courses</h1>
+
+        <!-- Search Boxed -->
+        <div class="search-boxed">
+            <div class="search-box">
+                <form method="post" action="#">
+                    <div class="form-group">
+                        <input type="search" name="search-field" value="" placeholder="What do you want to learn?" required>
+                        <button type="submit"><span class="icon fa fa-search"></span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--End Page Title-->
+
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url({% static 'images/icons/icon-1.png'%})"></div>
+    <div class="patern-layer-two paroller" data-paroller-factor="0.40" data-paroller-factor-lg="-0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-2.png)"></div>
+    <div class="circle-one"></div>
+    <div class="circle-two"></div>
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Content Side -->
+            <div class="content-side  col-md-12 col-sm-12">
+                <div class="our-courses">
+
+                    <!-- Options View -->
+                    <div class="options-view">
+                        <div class="clearfix">
+                            <div class="pull-left">
+                                <h3>Our All Courses</h3>
+                            </div>
+                            <div class="pull-right clearfix">
+                                <!-- List View -->
+                                <ul class="list-view">
+                                    <li class="active"><a href="#"><span class="icon flaticon-grid"></span></a></li>
+                                    <li><a href="#"><span class="icon flaticon-list-1"></span></a></li>
+                                </ul>
+
+                                <!-- Type Form -->
+                                <div class="type-form">
+                                    <form method="post" action="../../../../external.html?link=http://demo.auburnforest.com/html/bootcamp/bootcamp/index.html">
+
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <select class="custom-select-box">
+													<option>Newest</option>
+													<option>Old</option>
+												</select>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+
+                    <!-- Cource Block Two -->
+                    {% for courses in courses.all%}
+                    <div class="cource-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image">
+                                <a href="{% url 'detail' courses.id %}"><img src="{{ courses.image.url}}" alt="" /></a>
+                            </div>
+                            <div class="lower-content">
+                                <div class="clearfix">
+                                    <div class="pull-left">
+                                        <h5><a href="{% url 'detail' courses.id %}">{{courses.title}}</a></h5>
+                                    </div>
+                                    <!-- <div class="pull-right">
+                                        <div class="price">
+                                            {%if courses.price%}
+                                            <p>
+                                                {{courses.price}}TK
+                                            </p>
+                                            {%else %}
+                                            <p>Free</p>
+                                            {%endif %}
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="text">{{courses.intro_text}}</div>
+                                <div class="clearfix">
+                                    <!-- <div class="pull-left">
+                                        <div class="students">125 Student</div>
+                                    </div> -->
+                                    <div class="pull-left">
+                                        <div class="price">
+                                            <br> {%if courses.price%}
+                                            <p>
+                                                {{courses.price}}TK
+                                            </p>
+                                            {%else %}
+                                            <p>Free</p>
+                                            {%endif %}
+                                        </div>
+                                    </div>
+                                    <div class="pull-right ">
+                                        {% if courses.price%}
+                                        <a href="{% url 'detail' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Enroll Now</span></a> {%else%}
+                                        <a href="{% url 'lesson' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Play Video </i></span></a> {%endif%}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Popular Courses -->
+<section class="popular-courses-section">
+    <div class="auto-container">
+        <div class="sec-title">
+            <h2>Most Popular Courses</h2>
+        </div>
+
+        <div class="row clearfix">
+
+            <!-- Cource Block Two -->
+            {% for courses in courses.all%}
+            <div class="cource-block col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <div class="image">
+                        <a href="{% url 'detail' courses.id %}"><img src="{{ courses.image.url}}" alt="" /></a>
+                    </div>
+                    <div class="lower-content">
+                        <div class="clearfix">
+                            <div class="pull-left">
+                                <h5><a href="{% url 'detail' courses.id %}">{{courses.title}}</a></h5>
+                            </div>
+                            <!-- <div class="pull-right">
+                                <div class="price">
+                                    <p>
+                                        {% if courses.price %} {{courses.price}}TK {%else%} Free {%endif%}
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="text">Course intro test</div>
+                        <div class="clearfix">
+                            <!-- <div class="pull-left">
+                                <div class="students">125 Student</div>
+                            </div> -->
+                            <div class="pull-left">
+                                <div class="price">
+                                    <br> {%if courses.price%}
+                                    <p>
+                                        {{courses.price}}TK
+                                    </p>
+                                    {%else %}
+                                    <p>Free</p>
+                                    {%endif %}
+                                </div>
+                            </div>
+                            <div class="pull-right ">
+                                {% if courses.price %}
+                                <a href="{% url 'detail' courses.id %}" class="enroll">Enroll Now</a> {%else%}
+                                <a href="{% url 'lesson' courses.id %}" class="enroll">Play Video</a> {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+</section>
+<!-- End Popular Courses -->
+
+
+<section class="call-to-action-section-two" style="background-image: url({% static 'images/background/3.png' %})">
+    <div class="auto-container">
+        <div class="content">
+            <h2>Ready to get started?</h2>
+            <div class="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
+            <div class="buttons-box">
+                <a href="{% url 'course' %}" class="theme-btn btn-style-one"><span class="txt">Get Stared <i class="fa fa-angle-right"></i></span></a>
+                <a href="{% url 'course' %}" class="theme-btn btn-style-two"><span class="txt">All Courses <i class="fa fa-angle-right"></i></span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

@@ -1,0 +1,283 @@
+{%extends 'base.html' %} {%block content%} {%load static%}
+
+<!-- Page Title -->
+<section class="page-title">
+    <div class="auto-container">
+        <h1>{{courses.title}} </h1>
+        <br>
+        <br>
+        <br>
+    </div>
+
+</section>
+
+
+<!--End Page Title-->
+<section class="intro-section">
+    <div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
+    <div class="patern-layer-two paroller" data-paroller-factor="0.40" data-paroller-factor-lg="-0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-2.png)"></div>
+    <div class="circle-one"></div>
+    <div class="auto-container">
+        <div class="sec-title">
+            <h2>{{courses.title}}</h2>
+        </div>
+
+        <div class="inner-container">
+            <div class="row clearfix">
+                <!-- Video Column -->
+                <div class="video-column col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column sticky-top">
+
+                        <!-- Video Box -->
+                        <div class="intro-video" style="background-image: url({{courses.image.url}})">
+                            <a href="" class="lightbox-image intro-video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
+                            <h4>Preview this course</h4>
+                        </div>
+                        <!-- End Video Box -->
+                        <div class="price">{%if courses.price%}
+                            <p>
+                                {{courses.price}}TK
+                            </p>
+                            {%else %}
+                            <p>Free</p>
+                            {%endif %}</div>
+                        <!-- <div class="time-left">23 hours left at this price!</div> -->
+                        <br> {% if permit == 1 or var == 1%}
+                        <a href="{% url 'lesson' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Play Video</span></a> {%elif permit == 5%}
+
+                        <a href="{% url 'course' %}" class="theme-btn btn-style-three"><span class="txt">Pending</i></span></a> {%else%}
+                        <a href="{% url 'bkash' courses.id%}" class="theme-btn btn-style-three"><span class="txt">Enroll Now</i></span></a> {%endif%}
+
+
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                    <div class="inner-column">
+
+                        <!-- Intro Info Tabs-->
+                        <div class="intro-info-tabs">
+                            <!-- Intro Tabs-->
+                            <div class="intro-tabs tabs-box">
+
+                                <!--Tab Btns-->
+                                <ul class="tab-btns tab-buttons clearfix">
+                                    <li data-tab="#prod-overview" class="tab-btn active-btn">Overview</li>
+                                    <li data-tab="#prod-curriculum" class="tab-btn">Curriculum</li>
+                                    <li data-tab="#prod-reviews" class="tab-btn">Reviews</li>
+                                </ul>
+
+                                <!--Tabs Container-->
+                                <div class="tabs-content">
+
+                                    <!--Tab / Active Tab-->
+                                    <div class="tab active-tab" id="prod-overview">
+                                        <div class="content">
+
+                                            <!-- Cource Overview -->
+                                            <div class="course-overview">
+                                                <div class="inner-box">
+                                                    {% for details in detail %}
+                                                    <h4>{{ details.keno_korben }} </h4>
+                                                    {%endfor%} {% for details in detail %}
+                                                    <p>{{ details.keno_korben_details }} </p>
+                                                    {%endfor%}
+                                                    <!--
+                                                    <ul class="student-list">
+                                                        <li>23,564 Total Students</li>
+                                                        <li><span class="theme_color">4.5</span> <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>                                                            (1254 Rating)</li>
+                                                        <li>256 Reviews</li>
+                                                    </ul>
+                                                    -->
+
+                                                    {% for details in detail %}
+                                                    <h3>{{ details.ki_ki_sikhte_parben }} </h3>
+                                                    {%endfor%}
+                                                    <ul class="review-list">
+                                                        {% for review in ki_ki_sikhben%}
+                                                        <li>{{review.details}}</li>
+                                                        {%endfor%}
+
+                                                    </ul>
+                                                    <!--
+                                                    <h3>Requirements</h3>
+                                                    <ul class="requirement-list">
+                                                        <li>Phasellus enim magna, varius et commodo ut, ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel, sagittis vel justo</li>
+                                                        <li>Ultricies vitae velit. Ut nulla tellus, eleifend euismod pellentesque vel.</li>
+                                                        <li>Phasellus enim magna, varius et commodo ut.</li>
+                                                        <li>Varius et commodo ut, ultricies vitae velit. Ut nulla tellus.</li>
+                                                        <li>Phasellus enim magna, varius et commodo ut.</li>
+                                                    </ul>
+                                                    
+                                                    <h3>Instructors</h3>
+
+                                                    <div class="row clearfix">
+
+                                                        
+                                                        <div class="student-block col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="block-inner">
+                                                                <div class="image">
+                                                                    <img src="{% static 'images/resource/student-1.jpg' %}" alt="" />
+                                                                </div>
+                                                                <h2>Stephane Smith</h2>
+                                                                <div class="text">Certified instructor Architecture& Developer</div>
+                                                                <div class="social-box">
+                                                                    <a href="#" class="fa fa-facebook-square"></a>
+                                                                    <a href="#" class="fa fa-twitter-square"></a>
+                                                                    <a href="#" class="fa fa-linkedin-square"></a>
+                                                                    <a href="#" class="fa fa-github"></a>
+                                                                </div>
+                                                                <a href="#" class="more">Know More <span class="fa fa-angle-right"></span></a>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Student Block 
+                                                        <div class="student-block col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="block-inner">
+                                                                <div class="image">
+                                                                    <img src="{% static 'images/resource/student-2.jpg'%}" alt="" />
+                                                                </div>
+                                                                <h2>Marvin Zona</h2>
+                                                                <div class="text">Certified instructor Architecture& Developer</div>
+                                                                <div class="social-box">
+                                                                    <a href="#" class="fa fa-facebook-square"></a>
+                                                                    <a href="#" class="fa fa-twitter-square"></a>
+                                                                    <a href="#" class="fa fa-linkedin-square"></a>
+                                                                    <a href="#" class="fa fa-github"></a>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!--Lesson List-->
+                                    <div class="tab" id="prod-curriculum">
+                                        <div class="content">
+                                            <!-- Accordion Box -->
+                                            <ul class="accordion-box">
+                                                <!-- Block -->
+                                                <li class="accordion block">
+                                                    <div class="acc-btn">
+                                                        <div class="icon-outer"><span class="icon icon-plus flaticon-angle-arrow-down"></span></div>Lesson</div>
+                                                    <div class="acc-content">
+                                                        {%for lesson in lessons.all%} {% if lesson.course_Num == courses.course_num%}
+                                                        <div class="content">
+                                                            <div class="clearfix">
+                                                                <div class="pull-left">
+                                                                    <a href="../../../../external.html?link={{lesson.link}}" class="lightbox-image play-icon"><span class="fa fa-play"></span>{{lesson.title}}</a>
+                                                                </div>
+                                                                <!--
+                                                                <div class="pull-right">
+                                                                    <div class="minutes">35 Minutes</div>
+                                                                </div>
+                                                                -->
+                                                            </div>
+                                                        </div>
+                                                        {%endif%}{%endfor%}
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Tab -->
+                                    <div class="tab" id="prod-reviews" style="box-shadow: 0px 5px 17px --7px rgba(0, 0, 0, 0.75);border-radius: 10px;transition: transform 100ms ease-in;cursor: pointer;">
+                                        <!-- review system start -->
+                                        <div class="styled-form" style="padding: 15px;     border: 2px solid lightgray;">
+                                            <form method="POST" action="">
+                                                {% csrf_token %}
+                                                <div class="row clearfix">
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 4px">
+                                                        <label></label>
+                                                        <h3 style="color: gray; margin: 10px; padding-left: 10px;">Summary</h3>
+                                                        <hr style="size: 20px; border: 2px solid lightgray;">
+                                                        <textarea class="form-control" rows="5" id="comment" name="summary" style="background-color:#f0f2f5"></textarea>
+                                                    </div>
+                                                    <div class="rating-box" style=" padding-left: 34px; ">
+                                                        <div class="ratingss">
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                            <span class="fa fa-star-o"></span>
+                                                        </div>
+                                                        <input type="hidden" name="rating" id="rating-value" style="background-color: gray; " value="">
+                                                    </div>
+
+                                                    <!-- Form Group -->
+                                                    <div class="form-group col-lg-6 col-md-12 col-sm-12 ">
+                                                    </div>
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 ">
+                                                        <button type="submit" class="theme-btn btn-style-three"><span class="txt">submit</span></button>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+
+                                        <!-- review system end -->
+                                        <div class="content">
+                                            {% for review in review.all %} {% if review.course_id == course_id and review.permission%}
+                                            <div class="cource-review-box">
+                                                <h4>{{review.username}}</h4>
+                                                <div class="rating">
+                                                    <span class="total-rating">{{review.ratting}}</span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                                                    <!-- <div class="rating-box">
+                                                        <div class="rat">
+
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                        </div>
+                                                        <input type="hidden" name="rating" id="value" style="background-color: gray; " value="">
+                                                    </div> -->
+                                                </div>
+                                                <div class="text">{{review.summary}}
+                                                </div>
+                                                <!-- <div class="helpful">Was this review helpful?</div>
+                                                <ul class="like-option">
+                                                    <li><span class="icon fa fa-thumbs-o-up"></span></li>
+                                                    <li><span class="icon fa fa-thumbs-o-down"></span></li>
+                                                    <span class="report">Report</span>
+                                                </ul> -->
+                                            </div>
+                                            {%endif%} {%endfor%}
+                                            <!-- <div class="cource-review-box">
+                                                <a href="#" class="more">View More</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+{%endblock%}

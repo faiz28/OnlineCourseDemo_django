@@ -1,0 +1,17 @@
+.rating-box {
+    margin: 0 0 30px;
+    font-size: 10px;
+}
+
+.ratingss .fa {
+    font-size: 40px;
+    color: #00ab15;
+    float: left;
+    cursor: pointer;
+}
+
+.rating-box .input {
+    margin-top: 20px;
+    font-size: 30px;
+    padding: 2px 4px;
+}

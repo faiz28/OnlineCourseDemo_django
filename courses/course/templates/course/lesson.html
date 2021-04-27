@@ -1,0 +1,70 @@
+{%extends 'base.html' %} {%block content%} {%load static%}
+
+<!-- Page Title -->
+<section class="page-title">
+    <div class="auto-container">
+        <h1>Lesson</h1>
+
+        <!-- Search Boxed -->
+        <div class="search-boxed">
+            <div class="search-box">
+                <form method="post" action="">
+                    <div class="form-group">
+                        <input type="search" name="search-field" value="" placeholder="What do you want to learn?" required>
+                        <button type="submit"><span class="icon fa fa-search"></span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--End Page Title-->
+
+<section class="intro-section">
+    <div class="patern-layer-one paroller" data-paroller-factor="0.40" data-paroller-factor-lg="0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-1.png)"></div>
+    <div class="patern-layer-two paroller" data-paroller-factor="0.40" data-paroller-factor-lg="-0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style="background-image: url(images/icons/icon-2.png)"></div>
+    <div class="circle-one"></div>
+    <div class="auto-container">
+        <div class="tab" id="prod-faq">
+            <div class="content">
+
+
+                <!-- Accordion Box -->
+                <ul class="accordion-box">
+
+                    <!-- Block -->
+
+                    <li class="accordion block">
+                        <div class="acc-btn active">
+                            <div class="icon-outer"></div>
+                            {{ course.title}}
+                        </div>
+                        <div class="acc-content current">
+                            {%for lesson in lesson.all%} {% if lesson.course_Num == courses.number%}
+                            <div class="content">
+                                <div class="clearfix">
+                                    <div class="pull-left">
+                                        <a href="../../../../external.html?link={{lesson.link}}" class="lightbox-image play-icon"><span class="fa fa-play"></span>{{lesson.title}}</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {%endif%}{%endfor%}
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+{%endblock%}
